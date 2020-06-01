@@ -60,12 +60,6 @@ def main():
             result = (get_output(conn))
             is_core(result,host["ip"])
 
-            # model_regex = re.compile(r"core_(?P<file>\S+)")
-            # model_match = model_regex.search(result)
-            # if model_match:
-            #     print (model_match.group("file"))
-                #break
-
         conn.close()
 
 if __name__ == "__main__":
