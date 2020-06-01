@@ -7,10 +7,11 @@ import re
 from jinja2 import Environment, FileSystemLoader
 email = 'saptbane@cisco.com'
 
-def send_email(email,host):
+def send_email(email_address,email_body):
+    Email_Content = "Subject:Core Found!\n"+ email_body
     smtpObj = smtplib.SMTP('outbound.cisco.com', 25)
     smtpObj.ehlo()
-    smtpObj.sendmail('noreply@cisco.com',email, 'Subject:"Core Found on" + host')
+    smtpObj.sendmail('noreply@cisco.com',email_address, Email_Content )
     smtpObj.quit()
 
 def send_cmd(conn, command):
@@ -26,21 +27,14 @@ def is_core(output,host):
     if model_match:
         email_subject = "Core file "+(model_match.group("file"))+" found on "+host
         print (email_subject)
-        send_email(email, host)
+        send_email(email, email_subject)
 
 def main():
 
-
-     #   Here we are commenting out the dictionary that was statically defined in the previous iteration
-     #   host_dict = {
-     #       "10.2.4.21": "Admin123",
-     #       "10.2.4.23": "Admin123"
-     #   }
     with open("host_yaml/host.yml", "r") as hosts:
         host_root = yaml.load(hosts, Loader=yaml.FullLoader)
 
     for host in host_root["host_list"]:
-        #print (host)
         # paramiko can be client or server, we are using client here
         conn_param = paramiko.SSHClient()
 
