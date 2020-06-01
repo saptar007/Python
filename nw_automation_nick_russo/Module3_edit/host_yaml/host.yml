@@ -1,0 +1,9 @@
+# Define the list of hosts along with their login passwords
+# Remember that the YAML file will always start with --- at the top
+
+---
+host_list:
+    - ip: "10.2.4.21"
+      passw: "Admin123"
+    - ip: "10.2.4.21"
+      passw: "Admin123"
