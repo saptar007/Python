@@ -63,4 +63,7 @@ def main():
         conn.close()
 
 if __name__ == "__main__":
-    main()
+    while True:
+        #This will keep the script running for the time (in secs) in a loop
+        time.sleep(600)
+        main()
