@@ -7,3 +7,7 @@ host_list:
       passw: "Admin123"
     - ip: "10.2.4.23"
       passw: "Admin123"
+    - ip: "192.168.0.163"
+      passw: "Ci5c05n0rt!"
+    - ip: "192.168.0.164"
+      passw: "Ci5c05n0rt!"

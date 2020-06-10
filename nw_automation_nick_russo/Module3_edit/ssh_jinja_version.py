@@ -52,6 +52,7 @@ def main():
             #"show version",
             #"expert",
             "ls /ngfw/var/common | grep core",
+            "ls /ngfw/var/common | grep core"
         ]
         for command in commands:
             #time.sleep(1.0)
